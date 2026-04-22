@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "double",
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "declaration-block-trailing-semicolon": "always",
+    "no-descending-specificity": null
+  },
+  "ignoreFiles": [
+    "node_modules/**/*",
+    "vendor/**/*",
+    "docroot/core/**/*",
+    "docroot/modules/contrib/**/*",
+    "docroot/themes/contrib/**/*",
+    "**/*.min.css",
+    "**/dist/**/*",
+    "**/build/**/*"
+  ]
+}
