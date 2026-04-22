@@ -1,0 +1,18 @@
+{
+    "name": "andres2021alvarez/grumphp-eslint-lint",
+    "description": "Project initialization with GrumPHP and ESLint configuration",
+    "license": "proprietary",
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.51",
+        "mglaman/phpstan-drupal": "^2.0",
+        "phpmd/phpmd": "^2.15",
+        "phpro/grumphp": "^2.20",
+        "sebastian/phpcpd": "^6.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "phpro/grumphp": true
+        }
+    }
+}

@@ -1,0 +1,79 @@
+includes:
+  # Plugin oficial de PHPStan para Drupal (ya incluido por phpstan/extension-installer)
+  # - vendor/mglaman/phpstan-drupal/extension.neon
+  # Reglas estrictas recomendadas (opcional, comentar si es muy estricto al inicio)
+  # - vendor/phpstan/phpstan-strict-rules/rules.neon
+  # Deprecations de Drupal (ya incluido por phpstan/extension-installer)
+  # - vendor/mglaman/phpstan-drupal/rules.neon
+
+parameters:
+
+  # ============================================================
+  # NIVEL DE ANÁLISIS
+  # 0 = básico | 3 = recomendado Drupal | 5 = estricto | 9 = máximo
+  # ============================================================
+  level: 3
+
+  # ============================================================
+  # RUTAS A ANALIZAR (solo código custom)
+  # ============================================================
+  paths:
+    - docroot/modules/custom
+    - docroot/themes/custom
+
+  # ============================================================
+  # RUTAS A EXCLUIR
+  # ============================================================
+  excludePaths:
+    analyse:
+      - vendor/
+      - docroot/core/
+      - docroot/modules/contrib/
+      - docroot/themes/contrib/
+      - docroot/sites/default/
+      - "*/tests/src/Unit/*"
+      - "*/tests/src/Kernel/*"
+      - "*/tests/src/Functional/*"
+
+  # ============================================================
+  # CONFIGURACIÓN ESPECÍFICA DE DRUPAL
+  # ============================================================
+  drupal:
+    entityMapping: []
+
+  # ============================================================
+  # ERRORES IGNORADOS (comunes en Drupal que no son reales bugs)
+  # ============================================================
+  ignoreErrors:
+    # Drupal usa __construct con parámetros opcionales por convención
+    - message: '#Call to an undefined method Drupal\\Core\\.*#'
+      count: 999
+      path: docroot/modules/custom
+
+    # El contenedor de servicios de Drupal retorna mixed
+    - message: '#Method .* has no return type specified#'
+      path: docroot/modules/custom
+
+    # Hooks de Drupal no tienen tipado estricto por diseño
+    - message: '#Function hook_.* has no return type#'
+      path: docroot/modules/custom
+
+    # Variables de Drupal inyectadas en templates .html.twig
+    - '#Variable \$variables might not be defined#'
+
+    # Acceso dinámico a propiedades de entidades de Drupal
+    - '#Access to an undefined property Drupal\\Core\\Entity\\EntityInterface#'
+
+  # ============================================================
+  # PARÁMETROS EXTRA
+  # ============================================================
+  # Activar inferencia de tipos en propiedades
+  inferPrivatePropertyTypeFromConstructor: true
+
+  # Cache para mayor velocidad en análisis repetidos
+  tmpDir: /tmp/phpstan-cache
+
+  # Mostrar progreso
+  parallel:
+    maximumNumberOfProcesses: 4
+    minimumNumberOfJobsPerProcess: 2
