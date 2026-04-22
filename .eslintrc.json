@@ -1,0 +1,178 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jquery": true,
+    "amd": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:prettier/recommended"
+  ],
+
+  "globals": {
+    "Drupal": "readonly",
+    "drupalSettings": "readonly",
+    "drupalTranslations": "readonly",
+    "once": "readonly",
+    "CKEDITOR": "readonly",
+    "_": "readonly",
+    "Backbone": "readonly",
+    "Modernizr": "readonly",
+    "Popper": "readonly"
+  },
+
+  "rules": {
+
+    "no-unused-vars": ["warn", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false
+    }],
+
+    "no-console": ["warn", {
+      "allow": ["warn", "error"]
+    }],
+
+    "no-debugger": "error",
+
+    "no-alert": "warn",
+
+    "no-var": "error",
+
+    "prefer-const": ["error", {
+      "destructuring": "any",
+      "ignoreReadBeforeAssign": false
+    }],
+
+    "semi": ["error", "always"],
+
+    "quotes": ["error", "double", {
+      "avoidEscape": true,
+      "allowTemplateLiterals": false
+    }],
+
+    "indent": ["error", 2, {
+      "SwitchCase": 1,
+      "VariableDeclarator": 1,
+      "FunctionDeclaration": { "parameters": "first" },
+      "FunctionExpression": { "parameters": "first" }
+    }],
+
+    "eol-last": ["error", "always"],
+
+    "no-trailing-spaces": "error",
+
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+
+    "space-before-blocks": ["error", "always"],
+
+    "keyword-spacing": ["error", {
+      "before": true,
+      "after": true
+    }],
+
+    "space-infix-ops": "error",
+
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }],
+
+    "object-curly-spacing": ["error", "always"],
+
+    "array-bracket-spacing": ["error", "never"],
+
+    "computed-property-spacing": ["error", "never"],
+
+    "no-multiple-empty-lines": ["error", {
+      "max": 1,
+      "maxEOF": 0,
+      "maxBOF": 0
+    }],
+
+    "eqeqeq": ["error", "always", {
+      "null": "ignore"
+    }],
+
+    "curly": ["error", "all"],
+
+    "dot-notation": "error",
+
+    "no-else-return": ["error", {
+      "allowElseIf": false
+    }],
+
+    "no-shadow": ["error", {
+      "builtinGlobals": false,
+      "hoist": "functions",
+      "allow": ["done", "callback", "cb"]
+    }],
+
+    "no-eval": "error",
+
+    "no-implied-eval": "error",
+
+    "no-new-func": "error",
+
+    "no-param-reassign": ["warn", {
+      "props": false
+    }],
+
+    "prefer-arrow-callback": ["warn", {
+      "allowNamedFunctions": true
+    }],
+
+    "arrow-spacing": ["error", {
+      "before": true,
+      "after": true
+    }],
+
+    "template-curly-spacing": ["error", "never"],
+
+    "prefer-template": "warn",
+
+    "no-useless-concat": "error",
+
+    "max-len": ["warn", {
+      "code": 120,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true,
+      "ignoreComments": true
+    }],
+
+    "max-lines-per-function": ["warn", {
+      "max": 80,
+      "skipBlankLines": true,
+      "skipComments": true
+    }]
+
+  },
+
+  "ignorePatterns": [
+    "vendor/",
+    "node_modules/",
+    "docroot/core/",
+    "docroot/modules/contrib/",
+    "docroot/themes/contrib/",
+    "**/*.min.js",
+    "**/dist/**",
+    "**/build/**"
+  ]
+}
