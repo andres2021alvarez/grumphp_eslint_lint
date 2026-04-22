@@ -1,5 +1,9 @@
 # Guía de Instalación y Configuración: GrumPHP para Drupal
 
+![GrumPHP Status](https://github.com/andres2021alvarez/grumphp_eslint_lint/actions/workflows/grumphp.yml/badge.svg)
+![License](https://img.shields.io/badge/license-proprietary-blue.svg)
+
+
 Esta guía detalla los pasos para implementar un flujo de validación pre-commit robusto, enfocado en **Drupal**, principios **SOLID** y metodologías **GreenCode**.
 
 ---
