@@ -1,7 +1,4 @@
 grumphp:
-  # ============================================================
-  # CONFIGURACIÓN GENERAL
-  # ============================================================
   stop_on_failure: true
   ignore_unstaged_changes: false
   hooks_preset: local
@@ -21,13 +18,7 @@ grumphp:
   fixer:
     enabled: false
 
-  # ============================================================
-  # TAREAS AUTOMATIZADAS
-  # ============================================================
   tasks:
-    # ----------------------------------------------------------
-    # PHPMD - Detectar complejidad y violaciones de diseño (SOLID)
-    # ----------------------------------------------------------
     phpmd:
       ruleset:
         - unusedcode
@@ -36,16 +27,10 @@ grumphp:
       exclude: [vendor, docroot/core, docroot/modules/contrib, docroot/themes/contrib]
       triggered_by: [php, module, install, inc, theme]
 
-    # ----------------------------------------------------------
-    # PHPCPD - Evitar duplicidad de código (GreenCode)
-    # ----------------------------------------------------------
     phpcpd:
       directory: [docroot/modules/custom, docroot/themes/custom]
       triggered_by: [php, module, install, inc, theme]
 
-    # ----------------------------------------------------------
-    # PHP CodeSniffer — Estándar oficial Drupal
-    # ----------------------------------------------------------
     phpcs:
       standard: Drupal,DrupalPractice
       report: full
@@ -69,9 +54,6 @@ grumphp:
         - profile
         - test
 
-    # ----------------------------------------------------------
-    # PHPStan — Análisis estático con soporte Drupal
-    # ----------------------------------------------------------
     phpstan:
       autoload_file: ~
       configuration: phpstan.neon
@@ -89,9 +71,6 @@ grumphp:
         - install
         - inc
 
-    # ----------------------------------------------------------
-    # ESLint — JavaScript en módulos y temas custom
-    # ----------------------------------------------------------
     eslint:
       bin: ./node_modules/.bin/eslint
       config: .eslintrc.json
@@ -101,9 +80,6 @@ grumphp:
         - docroot/modules/custom
         - docroot/themes/custom
 
-    # ----------------------------------------------------------
-    # Stylelint — CSS/SCSS en módulos y temas custom
-    # ----------------------------------------------------------
     stylelint:
       bin: ./node_modules/.bin/stylelint
       config: .stylelintrc.json
@@ -115,9 +91,6 @@ grumphp:
         - docroot/themes/custom
         - docroot/modules/custom
 
-    # ----------------------------------------------------------
-    # Git Commit Message — Formato de mensajes de commit
-    # ----------------------------------------------------------
     git_commit_message:
       allow_empty_message: false
       enforce_capitalized_subject: false
@@ -130,9 +103,6 @@ grumphp:
       case_insensitive: true
       multiline: false
 
-    # ----------------------------------------------------------
-    # Git Branch Name — Formato de nombres de ramas
-    # ----------------------------------------------------------
     git_branch_name:
       whitelist:
         - /^(feature|bugfix|hotfix|release|chore|test)\/[a-z0-9\-]+$/
@@ -142,9 +112,6 @@ grumphp:
         - develop
       allow_detached_head: true
 
-    # ----------------------------------------------------------
-    # Composer — Validar composer.json y composer.lock
-    # ----------------------------------------------------------
     composer:
       file: composer.json
       no_check_all: false
@@ -154,29 +121,18 @@ grumphp:
       with_dependencies: false
       strict: false
 
-    # ----------------------------------------------------------
-    # Composer Normalize — Normalizar composer.json
-    # ----------------------------------------------------------
     composer_normalize:
       indent_size: ~
       indent_style: ~
       no_update_lock: true
       verbose: false
 
-
-
-    # ----------------------------------------------------------
-    # JSON Lint — Validar archivos JSON
-    # ----------------------------------------------------------
     jsonlint:
       ignore_patterns:
         - node_modules/
         - vendor/
       detect_key_conflicts: true
 
-    # ----------------------------------------------------------
-    # YAML Lint — Validar archivos YAML
-    # ----------------------------------------------------------
     yamllint:
       ignore_patterns:
         - vendor/
@@ -186,9 +142,6 @@ grumphp:
       parse_constant: false
       parse_custom_tags: false
 
-    # ----------------------------------------------------------
-    # XML Lint — Validar archivos XML (info, routing, services)
-    # ----------------------------------------------------------
     xmllint:
       ignore_patterns:
         - vendor/
